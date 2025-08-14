@@ -1,19 +1,24 @@
 <%- include("partials/header.ejs", { currentPath: "/read"}) %>
 <div class="container col-xl-10 col-xxl-8 px-4 pb-5">
   <h2>Blogs</h2>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 row-cols-lg-2 g-3">
     <% locals.blogArray.forEach(element => { %>
-        <div class="col">
-        <div class="card shadow-sm">
-            <h5 class="card-header"><%= element.blogTitle %></h5>
-            <div class="card-body">
-                <h6 class="card-text mb-2 text-body">Author: <%= element.firstName + " " + element.lastName %></h6>
-                <p class="card-text"><%= element.BlogContent %></p>
-            </div>
+    <div class="col">
+      <div class="card shadow-sm">
+        <h5 class="card-header"><%= element.blogTitle %></h5>
+        <div class="card-body">
+          <h6 class="card-text mb-2 text-body">
+            Author: <%= element.firstName + " " + element.lastName %>
+          </h6>
+          <p class="card-text"><%= element.blogContent %></p>
+          <%- include("partials/editModal.ejs", {
+            blog : element,
+            modalId: "editModal" + element.id
+          }) %>
         </div>
-        </div>
+      </div>
+    </div>
     <% }); %>
-    
   </div>
 </div>
 

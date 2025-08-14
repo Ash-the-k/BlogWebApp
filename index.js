@@ -19,17 +19,33 @@ app.post("/submit", (req, res) => {
     let date = new Date();
     const blogInst = {
         ...req.body, 
-        id: date
+        id: date.toISOString()
     };
     // console.log(blogInst);
     blogArray.push(blogInst);
-    console.log(blogArray);
+    console.log("New Blog: ");
+    console.log((blogInst));
     res.redirect("/read")
 })
 
 app.get("/read", (req, res) => {
     res.render("read.ejs", {blogArray: blogArray, currentPath: '/read'});
 });
+
+app.post("/edit", (req, res) => {
+    const { blogId, blogTitle, blogContent } = req.body;
+    const blogIndex = blogArray.findIndex(Element => Element.id === blogId);
+    console.log("Blog Index:");
+    console.log(blogIndex);
+    if (blogIndex !== -1) {
+        blogArray[blogIndex].blogTitle = blogTitle;
+        blogArray[blogIndex].blogContent = blogContent;
+    }
+    console.log("Edited Blog:");
+    console.log(blogArray[blogIndex]);
+    res.redirect("/read");
+})
+
 
 app.listen(PORT, () => {
     console.log(`Running at http://localhost:${PORT}`);

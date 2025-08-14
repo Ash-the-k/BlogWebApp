@@ -1,0 +1,77 @@
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#<%= locals.modalId %>"
+  data-bs-whatever="@edit"
+>
+  Edit Blog
+</button>
+
+<div
+  class="modal fade"
+  id="<%= locals.modalId %>"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editModalLabel">Edit Blog</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="/edit" method="post">
+          <div class="mb-3">
+            <label for="name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="name"
+            placeholder="<%= locals.blog.firstName + " " +
+            locals.blog.lastName %>" disabled>
+          </div>
+          <div class="mb-3">
+            <input
+              name="blogId"
+              type="hidden"
+              class="form-control"
+              id="blogId"
+              value="<%= locals.blog.id %>"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blogTitle" class="col-form-label">Title:</label>
+            <input
+            name="blogTitle"
+              type="text"
+              class="form-control"
+              id="blogTitle"
+              value="<%= locals.blog.blogTitle %>"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blog-text" class="col-form-label">Blog:</label>
+            <textarea name="blogContent" class="form-control" id="blog-text">
+<%= locals.blog.blogContent %></textarea
+            >
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
