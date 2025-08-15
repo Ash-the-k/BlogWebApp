@@ -12,7 +12,6 @@
     />
   </head>
   <body>
-    
     <div class="container col-xl-10 col-xxl-8">
       <header
         class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
@@ -28,10 +27,27 @@
         </a>
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a href="/" class="nav-link <%= currentPath === '/' ? 'active' : '' %>" aria-current="page">Blog</a>
+            <a
+              href="/"
+              class="nav-link <%= currentPath === '/' ? 'active' : '' %>"
+              aria-current="page"
+              >Blog</a
+            >
           </li>
-          <li class="nav-item"><a href="/read" class="nav-link <%= currentPath === '/read' ? 'active' : '' %>">Read Blogs</a></li>
-          <li class="nav-item"><a href="/about" class="nav-link <%= currentPath === '/about' ? 'active' : '' %>">About</a></li>
+          <li class="nav-item">
+            <a
+              href="/read"
+              class="nav-link <%= currentPath === '/read' ? 'active' : '' %>"
+              >Read Blogs</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="/about"
+              class="nav-link <%= currentPath === '/about' ? 'active' : '' %>"
+              >About</a
+            >
+          </li>
         </ul>
       </header>
     </div>
