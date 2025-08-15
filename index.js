@@ -46,6 +46,13 @@ app.post("/edit", (req, res) => {
     res.redirect("/read");
 })
 
+app.post("/delete", (req, res) => {
+    const { blogId } = req.body;
+    blogArray = blogArray.filter(element =>element.id !== blogId);
+    console.log("Deleted Blog ID: " + blogId);
+    res.redirect("/read");
+});
+
 
 app.listen(PORT, () => {
     console.log(`Running at http://localhost:${PORT}`);

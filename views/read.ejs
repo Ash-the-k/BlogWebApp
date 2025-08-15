@@ -11,10 +11,10 @@
             Author: <%= element.firstName + " " + element.lastName %>
           </h6>
           <p class="card-text"><%= element.blogContent %></p>
-          <%- include("partials/editModal.ejs", {
-            blog : element,
-            modalId: "editModal" + element.id
-          }) %>
+          <%- include("partials/editModal.ejs", { blog : element, modalId:
+          "editModal" + element.id }) %>
+          <%- include("partials/deleteModal.ejs", { blog : element, modalId:
+          "deleteModal" + element.id }) %>
         </div>
       </div>
     </div>

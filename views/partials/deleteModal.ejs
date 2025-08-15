@@ -1,0 +1,60 @@
+<button
+  type="button"
+  class="btn btn-outline-danger"
+  data-bs-toggle="modal"
+  data-bs-target="#<%= locals.modalId %>"
+  data-bs-whatever="@delete"
+>
+  Delete Blog
+</button>
+
+<div
+  class="modal fade"
+  id="<%= locals.modalId %>"
+  tabindex="-1"
+  aria-labelledby="deleteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteModalLabel">WARNING</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="/delete" method="post">
+          <input type="hidden" name="blogId" value="<%= blog.id %>" />
+          <p>Do you want to delete the following blog permanently?</p>
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <h5 class="card-header"><%= blog.blogTitle %></h5>
+              <div class="card-body">
+                <h6 class="card-text mb-2 text-body">
+                  Author: <%= blog.firstName + " " + blog.lastName %>
+                </h6>
+                <p class="card-text"><%= blog.blogContent %></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-outline-danger">Yes</button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              No
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
