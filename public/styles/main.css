@@ -1,100 +1,146 @@
-/* public/styles/main.css */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --glass-blur: blur(16px);
+  --primary-color: #6366f1;
+  --text-color: #1e293b;
+  --danger-color: #dc3545;
+  --dark-danger-color: #b91c1c;
+}
 
-/* --- Google Font Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-/* --- General Body & Theme Styles --- */
+/* Base Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
-    color: #343a40;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+  color: var(--text-color);
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* --- Hero Section Text (index.ejs) --- */
-.display-4 {
-    color: #212529; /* Darker, more prominent hero title */
-    font-weight: 600 !important;
+/* Glass Components */
+.glass-card,
+.glass-form,
+.glass-modal .modal-content,
+.glass-nav {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: all 0.3s ease;
 }
 
-/* --- Main Form Container (index.ejs) --- */
-form.bg-body-tertiary {
-    background-color: #ffffff !important; /* Override Bootstrap's light grey with white */
-    border-radius: 12px !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-    border: 1px solid #dee2e6;
+/* Card Specifics */
+.glass-card {
+  padding: 1.5rem;
+  border-radius: 12px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-form.bg-body-tertiary:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
 }
 
-form.bg-body-tertiary h2 {
-    font-weight: 600;
-    color: #343a40;
+.glass-card .card-header { padding: 1rem 1.25rem 0; }
+.glass-card .card-body { padding: 0 1.25rem; }
+.glass-card .card-footer { padding: 0 1.25rem 1rem; }
+
+/* Form Elements */
+.glass-form { padding: 2rem; }
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-/* --- Form Inputs & Buttons --- */
-.form-control:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.2);
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
 }
 
-.btn-primary {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-    font-weight: 500;
-    padding: 0.5rem;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+.glass-input-editable {
+  background: rgba(245, 245, 255, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary:hover {
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
-    transform: translateY(-2px); /* Subtle lift effect on hover */
+.glass-input-disabled,
+.form-control:disabled {
+  background: rgba(235, 235, 245, 0.3);
+  border: 1px solid rgba(200, 200, 220, 0.3);
+  color: rgba(30, 41, 59, 0.5);
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
-/* --- Blog Cards (Used in delete modal and read.ejs) --- */
-/* Find this rule in your CSS */
-.card {
-    border-radius: 10px;
-    border: 1px solid #e9ecef;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-    
-    /* ADD these two lines */
-    position: relative; 
-    transition: box-shadow 0.3s ease-in-out, bottom 0.3s ease-in-out;
+/* Buttons */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.541);
+  color: var(--text-color);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
 }
 
-/* Added a hover effect to match the form */
-.card:hover {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    bottom: 4px;
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.529);
+  border: 1px solid rgba(255, 255, 255, 0.61);
+  transform: translateY(-3px);
+  color: var(--primary-color); /* Or any color you want on hover */
+  text-decoration: none; /* Remove underline if present */
 }
 
-.card-header {
-    background-color: #343a40;
-    color: #ffffff;
-    font-weight: 500;
-    /* Match card's border radius */
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
+.btn-glass-primary {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
 }
 
-/* --- Danger Buttons --- */
-/* NEW SECTION */
-.btn-outline-danger {
-    transition: all 0.2s ease-in-out;
-    padding: 0.5rem;
+.btn-glass-primary:hover {
+  background: #4f46e5;
+  transform: translateY(-3px);
+  color: #020617; /* Or any color you want on hover */
+  text-decoration: none; /* Remove underline if present */
 
+  box-shadow: 0 4px 12px rgba(78, 70, 229, 0.167);
 }
 
-.btn-outline-danger:hover {
-    background-color: #dc3545; /* Bootstrap's danger red */
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3); /* Add a subtle red glow */
+.btn-glass-danger {
+  background: rgba(227, 10, 32, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: var(--danger-color);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
 }
 
+.btn-glass-danger:hover {
+  background: rgba(252, 0, 25, 0.289);
+  border: 1px solid rgba(72, 7, 13, 0.3);
+  transform: translateY(-3px);
+  color: var(--dark-danger-color);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+}
+
+/* Text & Utility Classes */
+.text-danger { color: var(--danger-color) !important; }
+.modal-title.text-danger { font-weight: 600; }
+.glass-card.bg-danger { background: rgba(252, 0, 25, 0.289); }
+.border-start { border-left-width: 3px !important; }
+
+/* Content Styles */
+.blog-content {
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.8);
+}

@@ -1,60 +1,210 @@
-<%- include("partials/header.ejs", { currentPath: "/about" }) %>
+<%- include("partials/header.ejs", { currentPath: "/about", title: "About Blogify" }) %>
 
 <style>
-  /* Custom button styling to match GitHub's branding */
-  .btn-github {
-    background-color: #24292e; /* GitHub's dark header color */
-    color: #ffffff;
-    border: 1px solid #24292e;
-    transition: background-color 0.2s ease-in-out;
+  .tech-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    margin-right: 1rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+  }
+  
+  .tech-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .tech-card:hover {
+    transform: translateY(-5px);
   }
 
+  /* GitHub button styles */
+  .btn-github {
+    background: linear-gradient(to bottom, #2b3136 0%, #24292e 100%);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 10px 16px;
+    width: 220px; /* Equal width for both buttons */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Glossy overlay effect */
+  .btn-github::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 6px 6px 0 0;
+  }
+  
   .btn-github:hover {
-    background-color: #3a424a; /* A slightly lighter shade for hover */
-    color: #ffffff;
-    border-color: #3a424a;
+    background: linear-gradient(to bottom, #333a40 0%, #2b3136 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(36, 41, 46, 0.3);
+  }
+  
+  .btn-github:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-github i {
+    margin-right: 8px;
+    font-size: 1.1em;
   }
 </style>
 
-<div class="container col-xl-10 col-xxl-8 px-4 py-3">
-  <div class="row align-items-center g-lg-5">
-    <div class="col-md-10 mx-auto col-lg-10">
-      <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-4">About Blogify</h1>
-      <p class="fs-5">
-        Blogify is a dynamic web application designed to provide a simple and elegant platform for sharing your thoughts and ideas. It was built as a project to demonstrate proficiency in modern web development technologies.
-      </p>
-      <p class="fs-5">
-        This project focuses on the fundamentals of back-end development, including routing, middleware, and server-side rendering, without the complexity of a database. All posts are session-based, meaning they will disappear when the server is restarted. This allows for a focus on the core CRUD (Create, Read, Update, Delete) functionality.
-      </p>
-      <hr class="my-4">
-      <h2 class="fw-bold lh-1 text-body-emphasis mb-3">Core Technologies</h2>
-      <ul class="fs-5">
-        <li><strong>Node.js:</strong> A powerful JavaScript runtime for building fast and scalable server-side applications.</li>
-        <li><strong>Express.js:</strong> A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.</li>
-        <li><strong>EJS (Embedded JavaScript):</strong> A simple templating language that lets you generate HTML markup with plain JavaScript.</li>
-        <li><strong>Bootstrap:</strong> A popular front-end framework for creating clean, responsive, and intuitive user interfaces.</li>
-      </ul>
-      <hr class="my-4">
-      <h2 class="fw-bold lh-1 text-body-emphasis mb-3">Project & Author</h2>
-      <p class="fs-5">
-        This application was created by Ashlesh. The complete source code is available on GitHub. Feel free to explore the repository, open issues, or view my other projects.
-      </p>
-      <div class="d-flex flex-column flex-sm-row gap-2 mt-3">
-        <a href="https://github.com/Ash-the-k/BlogWebApp" class="btn btn-github d-inline-flex align-items-center" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-2" viewBox="0 0 16 16">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-          </svg>
-          Project Repository
-        </a>
-        <a href="https://github.com/Ash-the-k" class="btn btn-github d-inline-flex align-items-center" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill me-2" viewBox="0 0 16 16">
-            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-          </svg>
-          My GitHub Profile
-        </a>
+
+<main height="100vh">
+
+<div class="container col-xl-10 col-xxl-9 px-4 py-5">
+  <div class="glass-card p-5 mb-5">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold mb-4">
+          About <span class="text-primary">Blogify</span>
+        </h1>
+        <p class="lead">
+          A modern blogging platform with sleek design and intuitive interface.
+        </p>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="https://illustrations.popsy.co/amber/digital-nomad.svg" alt="Blog Illustration" class="img-fluid floating" style="max-height: 300px;">
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-card p-5 mb-5">
+    <h2 class="fw-bold mb-4">
+      <i class="fas fa-lightbulb me-2 text-primary"></i> Project Vision
+    </h2>
+    <p class="fs-5 mb-4">
+      Blogify was designed to provide a simple yet elegant platform for sharing your thoughts and ideas. 
+      Built as a demonstration of modern web development techniques, it combines beautiful design with 
+      powerful functionality.
+    </p>
+    <p class="fs-5">
+      The project focuses on core back-end development fundamentals including routing, middleware, and 
+      server-side rendering, while maintaining a clean and intuitive user interface.
+    </p>
+  </div>
+
+  <div class="glass-card p-5 mb-5">
+    <h2 class="fw-bold mb-4">
+      <i class="fas fa-cogs me-2 text-primary"></i> Core Technologies
+    </h2>
+    
+    <div class="tech-card glass-card">
+      <div class="tech-icon">
+        <i class="fab fa-node-js"></i>
+      </div>
+      <div>
+        <h5 class="fw-bold mb-1">Node.js</h5>
+        <p class="mb-0">
+          A powerful JavaScript runtime for building fast and scalable server-side applications.
+        </p>
+      </div>
+    </div>
+    
+    <div class="tech-card glass-card">
+      <div class="tech-icon">
+        <i class="fas fa-bolt"></i>
+      </div>
+      <div>
+        <h5 class="fw-bold mb-1">Express.js</h5>
+        <p class="mb-0">
+          Minimal and flexible Node.js framework with robust features for web applications.
+        </p>
+      </div>
+    </div>
+    
+    <div class="tech-card glass-card">
+      <div class="tech-icon">
+        <i class="fas fa-code"></i>
+      </div>
+      <div>
+        <h5 class="fw-bold mb-1">EJS</h5>
+        <p class="mb-0">
+          Simple templating language that generates HTML markup with plain JavaScript.
+        </p>
+      </div>
+    </div>
+    
+    <div class="tech-card glass-card">
+      <div class="tech-icon">
+        <i class="fab fa-bootstrap"></i>
+      </div>
+      <div>
+        <h5 class="fw-bold mb-1">Bootstrap 5</h5>
+        <p class="mb-0">
+          Popular front-end framework for responsive, mobile-first projects.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-card p-5">
+    <div class="row">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="fw-bold mb-4">
+          <i class="fas fa-user-astronaut me-2 text-primary"></i> About the Developer
+        </h2>
+        <p class="fs-5 mb-4">
+          This application was created by <strong>Ashlesh</strong> as a demonstration of modern web development skills.
+        </p>
+        <p class="fs-5">
+          The project showcases clean code architecture, responsive design principles, and efficient 
+          server-side rendering techniques.
+        </p>
+      </div>
+      
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-4">
+          <i class="fas fa-code-branch me-2 text-primary"></i> Get the Code
+        </h2>
+        <p class="fs-5 mb-4">
+          The complete source code is available on GitHub. Feel free to explore, fork, or contribute!
+        </p>
+        
+<div class="d-flex flex-wrap gap-3">
+  <a href="https://github.com/Ash-the-k/BlogWebApp" 
+     class="btn btn-github" 
+     target="_blank">
+    <i class="fab fa-github"></i> Project Repository
+  </a>
+  
+  <a href="https://github.com/Ash-the-k" 
+     class="btn btn-github" 
+     target="_blank">
+    <i class="fas fa-user"></i> My GitHub Profile
+  </a>
+</div>
+
+
       </div>
     </div>
   </div>
 </div>
 
+</main>
 <%- include("partials/footer.ejs") %>

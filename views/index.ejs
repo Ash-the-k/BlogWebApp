@@ -1,72 +1,53 @@
-<%- include("partials/header.ejs", { currentPath: "/" }) %>
-<div class="container col-xl-10 col-xxl-8 px-4 py-5">
-  <div class="row align-items-center g-lg-5 py-5">
-    <div class="col-lg-7 text-center text-lg-start">
-      <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">
-        Welcome to Blogify
-      </h1>
-      <p class="col-lg-10 fs-4">
-        A clean space for your ideas. This is a dynamic blog application built
-        with Node.js and Express. Jump right in to create, edit, and manage your
-        posts for this session.
-      </p>
+<%- include("partials/header.ejs", { currentPath: "/", title: "Create a New Blog" }) %>
+<div class="row align-items-center g-lg-5 py-5" style="min-height: 85vh;">
+  <div class="col-lg-7 text-center text-lg-start">
+    <h1 class="display-4 fw-bold lh-1 mb-3">
+      Welcome to <span class="text-primary">Blogify</span>
+    </h1>
+    <p class="col-lg-10 fs-4">
+      A modern space for your ideas. This sleek blog platform combines beautiful design with powerful functionality.
+    </p>
+    <div class="d-flex gap-3 mt-4">
+      <a href="/read" class="btn btn-glass-primary px-4">
+        <i class="fas fa-book-open me-2"></i> Read Blogs
+      </a>
+      <a href="/about" class="btn btn-glass px-4">
+        <i class="fas fa-info-circle me-2"></i> Learn More
+      </a>
     </div>
-    <div class="col-md-10 mx-auto col-lg-5">
-      <form
-        action="/submit"
-        method="post"
-        class="p-4 p-md-5 border rounded-3 bg-body-tertiary"
-      >
-        <h2><strong>Start Blogging</strong></h2>
-        <div class="form-floating mb-3 mt-4">
-          <input
-            type="text"
-            class="form-control"
-            id="firstName"
-            name="firstName"
-            placeholder="John"
-            autofocus
-          />
-          <label for="firstName">First Name</label>
+  </div>
+
+  <div class="col-md-10 mx-auto col-lg-5 mt-5 mt-lg-0">
+    <div class="glass-form floating">
+      <h2 class="text-center mb-4"><strong>Start Blogging</strong></h2>
+      
+      <form action="/submit" method="post">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control glass-input" id="firstName" name="firstName" placeholder="John" required>
+          <label for="firstName"><i class="fas fa-user me-2"></i>First Name</label>
         </div>
 
         <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="lastName"
-            name="lastName"
-            placeholder="Smith"
-          />
-          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control glass-input" id="lastName" name="lastName" placeholder="Smith" required>
+          <label for="lastName"><i class="fas fa-user me-2"></i>Last Name</label>
         </div>
 
         <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="blogTitle"
-            name="blogTitle"
-            placeholder="Smith"
-          />
-          <label for="lastName">Blog Title</label>
+          <input type="text" class="form-control glass-input" id="blogTitle" name="blogTitle" placeholder="My Awesome Blog" required>
+          <label for="blogTitle"><i class="fas fa-heading me-2"></i>Blog Title</label>
         </div>
 
         <div class="mb-3">
-          <label for="blogBox" class="form-label">Write your Blog</label>
-          <textarea
-            class="form-control"
-            id="blogBox"
-            rows="5"
-            placeholder="Blog Content"
-            name="blogContent"
-          ></textarea>
+          <label for="blogBox" class="form-label"><i class="fas fa-edit me-2"></i>Your Blog Content</label>
+          <textarea class="form-control glass-input" id="blogBox" rows="5" name="blogContent" required></textarea>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">
-          Post Blog
+
+        <button class="w-100 btn btn-glass-primary btn-lg" type="submit">
+          <i class="fas fa-paper-plane me-2"></i> Publish Blog 
         </button>
       </form>
     </div>
   </div>
 </div>
+
 <%- include("partials/footer.ejs") %>
