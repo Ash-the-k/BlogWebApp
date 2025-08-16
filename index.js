@@ -55,6 +55,10 @@ app.post("/delete", (req, res) => {
     res.redirect("/read");
 });
 
+app.get("/about", (req, res) => {
+    res.render("about.ejs");
+});
+
 
 app.listen(PORT, () => {
     console.log(`Running at http://localhost:${PORT}`);

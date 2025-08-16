@@ -1,0 +1,60 @@
+<%- include("partials/header.ejs", { currentPath: "/about" }) %>
+
+<style>
+  /* Custom button styling to match GitHub's branding */
+  .btn-github {
+    background-color: #24292e; /* GitHub's dark header color */
+    color: #ffffff;
+    border: 1px solid #24292e;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .btn-github:hover {
+    background-color: #3a424a; /* A slightly lighter shade for hover */
+    color: #ffffff;
+    border-color: #3a424a;
+  }
+</style>
+
+<div class="container col-xl-10 col-xxl-8 px-4 py-3">
+  <div class="row align-items-center g-lg-5">
+    <div class="col-md-10 mx-auto col-lg-10">
+      <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-4">About Blogify</h1>
+      <p class="fs-5">
+        Blogify is a dynamic web application designed to provide a simple and elegant platform for sharing your thoughts and ideas. It was built as a project to demonstrate proficiency in modern web development technologies.
+      </p>
+      <p class="fs-5">
+        This project focuses on the fundamentals of back-end development, including routing, middleware, and server-side rendering, without the complexity of a database. All posts are session-based, meaning they will disappear when the server is restarted. This allows for a focus on the core CRUD (Create, Read, Update, Delete) functionality.
+      </p>
+      <hr class="my-4">
+      <h2 class="fw-bold lh-1 text-body-emphasis mb-3">Core Technologies</h2>
+      <ul class="fs-5">
+        <li><strong>Node.js:</strong> A powerful JavaScript runtime for building fast and scalable server-side applications.</li>
+        <li><strong>Express.js:</strong> A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.</li>
+        <li><strong>EJS (Embedded JavaScript):</strong> A simple templating language that lets you generate HTML markup with plain JavaScript.</li>
+        <li><strong>Bootstrap:</strong> A popular front-end framework for creating clean, responsive, and intuitive user interfaces.</li>
+      </ul>
+      <hr class="my-4">
+      <h2 class="fw-bold lh-1 text-body-emphasis mb-3">Project & Author</h2>
+      <p class="fs-5">
+        This application was created by Ashlesh. The complete source code is available on GitHub. Feel free to explore the repository, open issues, or view my other projects.
+      </p>
+      <div class="d-flex flex-column flex-sm-row gap-2 mt-3">
+        <a href="https://github.com/Ash-the-k/BlogWebApp" class="btn btn-github d-inline-flex align-items-center" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github me-2" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+          </svg>
+          Project Repository
+        </a>
+        <a href="https://github.com/Ash-the-k" class="btn btn-github d-inline-flex align-items-center" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill me-2" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+          </svg>
+          My GitHub Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
