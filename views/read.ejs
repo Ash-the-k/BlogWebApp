@@ -4,7 +4,7 @@
   <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 g-3">
     <% locals.blogArray.forEach(element => { %>
     <div class="col">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm" data-bs-toggle="modal" data-bs-target="#editModal<%= element.id %>">
         <h5 class="card-header"><%= element.blogTitle %></h5>
         <div class="card-body">
           <h6 class="card-text mb-2 text-body">

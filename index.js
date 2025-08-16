@@ -7,6 +7,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 let blogArray = [];
 
+app.use(express.static("public"));
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
