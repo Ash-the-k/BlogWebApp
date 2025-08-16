@@ -59,12 +59,8 @@ Experience Blogify in action: [Demo Link Coming Soon]
   </tr>
   <tr>
 </table>
-<table>
-    <td colspan="3" align="center">
-      <strong>About Page</strong><br>
-    </td>
-  </tr>
-</table>
+
+<strong>About Page</strong>
 
 ![About Page](public/screenshots/about-page.png)
 
