@@ -39,25 +39,25 @@ Experience Blogify in action: [Demo Link Coming Soon]
     </td>
   </tr>
 </table>
-<table>
+
+<table width="100%" style="border: none; border-collapse: collapse;">
   <tr>
-    <td align="center" valign="top">
+    <td width="33.33%" align="center" valign="top">
       <strong>Phone View</strong><br>
       <img src="public/screenshots/phone-view.png" alt="Phone View" width="100%"><br>
       <em>Home Page with Navbar on phone Dimensions</em>
     </td>
-    <td align="center" valign="top">
+    <td width="33.33%" align="center" valign="top">
       <strong>Edit Modal</strong><br>
       <img src="public/screenshots/edit-modal.png" alt="Edit Modal" width="100%"><br>
-      <em>In-place editing of blog posts through intuitive modal dialogs</em>
+      <em>In-place editing of blog posts through modal dialogs</em>
     </td>
-     <td align="center" valign="top">
+     <td width="33.33%" align="center" valign="top">
       <strong>Delete Confirmation Modal</strong><br>
       <img src="public/screenshots/delete-modal.png" alt="Delete Modal" width="100%"><br>
       <em>Safe deletion with confirmation warnings and post preview</em>
     </td>
   </tr>
-  <tr>
 </table>
 
 <strong>About Page</strong>
