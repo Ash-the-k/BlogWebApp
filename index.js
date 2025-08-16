@@ -1,11 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import ejs from 'ejs';
-import path from 'path';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 let blogArray = [];
+
+// Set EJS as view engine
+app.set('view engine', 'ejs');
 
 app.use(express.static("public"));
 

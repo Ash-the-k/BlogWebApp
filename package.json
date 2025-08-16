@@ -7,14 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Ashlesh",
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "body-parser": "^2.2.0",
-    "bootstrap": "^5.3.7",
     "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "nodemon": "^3.1.10"
+    "express": "^5.1.0"
   }
 }
