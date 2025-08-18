@@ -144,3 +144,37 @@ body {
   line-height: 1.6;
   color: rgba(0, 0, 0, 0.8);
 }
+
+
+  .blog-content.truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .blog-content.expanded {
+    display: block;
+  }
+
+  .read-more-btn {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 500;
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+
+  .read-more-btn::after {
+    content: ' ▼';
+    font-size: 0.8em;
+  }
+
+  .blog-content.expanded + .read-more-btn::after {
+    content: ' ▲';
+  }
